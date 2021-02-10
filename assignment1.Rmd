@@ -1,0 +1,87 @@
+---
+title: "MA677_HW1"
+author: "Haoqi Wang"
+date: "2/11/2021"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+
+## Experiments
+In our hypothesis test, the null hypothesis is that: $H_0:P=0.6$ and the alternative hypothesis is that: $H_1:P>0.6$. The Type I error refers to reject the null hypothesis when in fact it is true. And $\alpha(p)$ is the probability of type 1 error. Whereas $\beta(p)$ is the probability of the type 2 error, which is to accept the null hypothesis when it is false.
+In this case, choosing m well below np = .8n will increase $\alpha(.8)$, since now $\alpha(.8)$ is all but the lower tail of a binomial distribution. Indeed, if we put $\beta(.8)$ = 1 − $\alpha(.8)$, then $\beta(.8)$ gives us the probability of a type 2 error, and so decreasing m makes a type 2 error less likely. So we should make the probabilities of each type error less than 0.05. So we know:
+$$\alpha(p)=\sum_{m\le{k}\le{n}}b(n,p,k)=\sum_{60\le{k}\le{100}}b(100,0.6,k)$$
+
+ $$\beta(p)=1-\alpha(p)=\sum_{k\le{m}}b(n,p,k)=\sum_{k\le{80}}b(100,0.8,k)$$
+```{r,warning=FALSE}
+#type 1 error when p=0.6
+n=100
+p=0.6
+t=100-n*p
+m1=rep(0,t)
+p1=rep(0,t)
+for(i in 0:t){
+  m1[i]=i+n*p
+  p1[i]=pbinom(n,n,p)-pbinom(m1[i]-1,n,p)
+}
+a=data.frame(cbind(m1,p1))
+```
+
+
+```{r}
+#type 2 error when p=0.8
+n=100
+p=0.8
+t=100-n*p
+m2=rep(0,t)
+p2=rep(0,t)
+for(i in 0:t){
+  m2[i]=n*p-i
+  p2[i]=pbinom(m2[i]-1,n,p)
+}
+b=data.frame(cbind(m2,p2))
+```
+
+```{r}
+a1 <- a[which(a$p1<0.05),1]
+b1 <- b[which(b$p2<0.05),1]
+```
+
+The minimum value is:
+```{r,echo=FALSE}
+print(min(a1))
+```
+The maximum value is:
+```{r,echo=FALSE}
+print(max(b1))
+```
+
+### Figure 3.7
+
+```{r}
+n = 100
+p = seq(from=0.4,to=1,by=0.01)
+P69=cumsum(dbinom(min(a1),n,p))
+P73=cumsum(dbinom(max(b1),n,p))
+dt=data.frame(p,P69,P73)
+ggplot(dt)+
+  geom_segment(aes(x=0.6,xend=0.8,y=0.95,yend=0.95),colour="black")+
+  geom_segment(aes(x=0.6,xend=0.8,y=0.05,yend=0.05),colour="black")+
+  geom_segment(aes(x=0.6,xend=0.6,y=0.05,yend=0.95),colour="black")+
+  geom_segment(aes(x=0.8,xend=0.8,y=0.05,yend=0.95),colour="black")+
+  geom_line(aes(p, P69),color="blue")+
+  geom_line(aes(p, P73),color="red")+
+  xlab("p") +
+  ylab("a(p)") +
+  ggtitle("The power curve") 
+  
+```
+
+#

@@ -1,0 +1,208 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MA677\_HW1},
+  pdfauthor={Haoqi Wang},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{MA677\_HW1}
+\author{Haoqi Wang}
+\date{2/11/2021}
+
+\begin{document}
+\maketitle
+
+\hypertarget{experiments}{%
+\subsection{Experiments}\label{experiments}}
+
+In our hypothesis test, the null hypothesis is that: \(H_0:P=0.6\) and
+the alternative hypothesis is that: \(H_1:P>0.6\). The Type I error
+refers to reject the null hypothesis when in fact it is true. And
+\(\alpha(p)\) is the probability of type 1 error. Whereas \(\beta(p)\)
+is the probability of the type 2 error, which is to accept the null
+hypothesis when it is false. In this case, choosing m well below np =
+.8n will increase \(\alpha(.8)\), since now \(\alpha(.8)\) is all but
+the lower tail of a binomial distribution. Indeed, if we put
+\(\beta(.8)\) = 1 − \(\alpha(.8)\), then \(\beta(.8)\) gives us the
+probability of a type 2 error, and so decreasing m makes a type 2 error
+less likely. So we should make the probabilities of each type error less
+than 0.05. So we know:
+\[\alpha(p)=\sum_{m\le{k}\le{n}}b(n,p,k)=\sum_{60\le{k}\le{100}}b(100,0.6,k)\]
+
+\[\beta(p)=1-\alpha(p)=\sum_{k\le{m}}b(n,p,k)=\sum_{k\le{80}}b(100,0.8,k)\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#type 1 error when p=0.6}
+\NormalTok{n=}\DecValTok{100}
+\NormalTok{p=}\FloatTok{0.6}
+\NormalTok{t=}\DecValTok{100}\OperatorTok{-}\NormalTok{n}\OperatorTok{*}\NormalTok{p}
+\NormalTok{m1=}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,t)}
+\NormalTok{p1=}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,t)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\OperatorTok{:}\NormalTok{t)\{}
+\NormalTok{  m1[i]=i}\OperatorTok{+}\NormalTok{n}\OperatorTok{*}\NormalTok{p}
+\NormalTok{  p1[i]=}\KeywordTok{pbinom}\NormalTok{(n,n,p)}\OperatorTok{-}\KeywordTok{pbinom}\NormalTok{(m1[i]}\OperatorTok{-}\DecValTok{1}\NormalTok{,n,p)}
+\NormalTok{\}}
+\NormalTok{a=}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(m1,p1))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#type 2 error when p=0.8}
+\NormalTok{n=}\DecValTok{100}
+\NormalTok{p=}\FloatTok{0.8}
+\NormalTok{t=}\DecValTok{100}\OperatorTok{-}\NormalTok{n}\OperatorTok{*}\NormalTok{p}
+\NormalTok{m2=}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,t)}
+\NormalTok{p2=}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,t)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{0}\OperatorTok{:}\NormalTok{t)\{}
+\NormalTok{  m2[i]=n}\OperatorTok{*}\NormalTok{p}\OperatorTok{-}\NormalTok{i}
+\NormalTok{  p2[i]=}\KeywordTok{pbinom}\NormalTok{(m2[i]}\OperatorTok{-}\DecValTok{1}\NormalTok{,n,p)}
+\NormalTok{\}}
+\NormalTok{b=}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(m2,p2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a1 <-}\StringTok{ }\NormalTok{a[}\KeywordTok{which}\NormalTok{(a}\OperatorTok{$}\NormalTok{p1}\OperatorTok{<}\FloatTok{0.05}\NormalTok{),}\DecValTok{1}\NormalTok{]}
+\NormalTok{b1 <-}\StringTok{ }\NormalTok{b[}\KeywordTok{which}\NormalTok{(b}\OperatorTok{$}\NormalTok{p2}\OperatorTok{<}\FloatTok{0.05}\NormalTok{),}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+The minimum value is:
+
+\begin{verbatim}
+## [1] 69
+\end{verbatim}
+
+The maximum value is:
+
+\begin{verbatim}
+## [1] 73
+\end{verbatim}
+
+\hypertarget{figure-3.7}{%
+\subsubsection{Figure 3.7}\label{figure-3.7}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n =}\StringTok{ }\DecValTok{100}
+\NormalTok{p =}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\FloatTok{0.4}\NormalTok{,}\DataTypeTok{to=}\DecValTok{1}\NormalTok{,}\DataTypeTok{by=}\FloatTok{0.01}\NormalTok{)}
+\NormalTok{P69=}\KeywordTok{cumsum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\KeywordTok{min}\NormalTok{(a1),n,p))}
+\NormalTok{P73=}\KeywordTok{cumsum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\KeywordTok{max}\NormalTok{(b1),n,p))}
+\NormalTok{dt=}\KeywordTok{data.frame}\NormalTok{(p,P69,P73)}
+\KeywordTok{ggplot}\NormalTok{(dt)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.6}\NormalTok{,}\DataTypeTok{xend=}\FloatTok{0.8}\NormalTok{,}\DataTypeTok{y=}\FloatTok{0.95}\NormalTok{,}\DataTypeTok{yend=}\FloatTok{0.95}\NormalTok{),}\DataTypeTok{colour=}\StringTok{"black"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.6}\NormalTok{,}\DataTypeTok{xend=}\FloatTok{0.8}\NormalTok{,}\DataTypeTok{y=}\FloatTok{0.05}\NormalTok{,}\DataTypeTok{yend=}\FloatTok{0.05}\NormalTok{),}\DataTypeTok{colour=}\StringTok{"black"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.6}\NormalTok{,}\DataTypeTok{xend=}\FloatTok{0.6}\NormalTok{,}\DataTypeTok{y=}\FloatTok{0.05}\NormalTok{,}\DataTypeTok{yend=}\FloatTok{0.95}\NormalTok{),}\DataTypeTok{colour=}\StringTok{"black"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.8}\NormalTok{,}\DataTypeTok{xend=}\FloatTok{0.8}\NormalTok{,}\DataTypeTok{y=}\FloatTok{0.05}\NormalTok{,}\DataTypeTok{yend=}\FloatTok{0.95}\NormalTok{),}\DataTypeTok{colour=}\StringTok{"black"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(p, P69),}\DataTypeTok{color=}\StringTok{"blue"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(p, P73),}\DataTypeTok{color=}\StringTok{"red"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"p"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"a(p)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"The power curve"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{assignment1_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{section}{%
+\section{}\label{section}}
+
+\end{document}
